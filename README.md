@@ -25,12 +25,8 @@ Installation
 Default Login Credentials
 -----------------------
 Admin:
-- Username: admin
-- Password: admin123
-
-Test User:
-- Username: testuser
-- Password: test123
+- Username: Nithish
+- Password: Nithish123
 
 Features
 --------
@@ -52,6 +48,8 @@ File Structure
   /Company_Module - Admin functionalities
   index.html      - Landing page
   main_page.html  - Home page
-  README.txt      - This file
 
+Live Demo
+-------------
+chitmaster.infinityfreeapp.com
 
