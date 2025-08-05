@@ -51,5 +51,5 @@ File Structure
 
 Live Demo
 -------------
-chitmaster.infinityfreeapp.com
+A live demo is available [here](https://chitmaster.infinityfreeapp.com).
 
