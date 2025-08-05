@@ -18,7 +18,7 @@ Installation
    Default credentials:
    - Host: localhost
    - Username: root
-   - Password: root789
+   - Password: root123
    - Database: chit_fund3
 
 Default Login Credentials
@@ -46,7 +46,6 @@ File Structure
 /ChitMaster
   /assets
     /css     - Stylesheets
-    /js      - JavaScript files
     /images  - Images and icons
   /User_Module    - User-related functionalities
   /Company_Module - Admin functionalities
@@ -54,8 +53,5 @@ File Structure
   main_page.html  - Home page
   README.txt      - This file
 
-Support
--------
-For support and queries, contact:
-Email: support@chitmaster.com
-Phone: +91 98765 43210
+
+
