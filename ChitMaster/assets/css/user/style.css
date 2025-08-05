@@ -1,0 +1,324 @@
+/*================================================================
+  Chit Master - Professional User Module Stylesheet
+  Description: A unified, modern stylesheet for all user-facing pages.
+================================================================*/
+
+/* * 1. GLOBAL SETTINGS & VARIABLES
+  * ===================================
+  */
+:root {
+    /* Colors */
+    --primary-color: #2E7D32; /* A professional, trusting green */
+    --primary-dark: #1B5E20;
+    --primary-light-bg: #E8F5E9; /* Very light green for backgrounds */
+    --white: #ffffff;
+    --gray-light: #dee2e6;
+    --text-dark: #333333;
+    --text-light: #6c757d;
+
+    /* Spacing & Radius */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --radius: 8px;
+
+    /* Effects */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* * 2. LAYOUT & DASHBOARD
+  * ===================================
+  */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.column.left {
+    width: 280px;
+    background: var(--white);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    overflow-y: auto;
+    border-right: 1px solid var(--gray-light);
+}
+
+.column.right {
+    flex-grow: 1;
+    padding: var(--spacing-lg);
+    overflow: auto;
+}
+
+#displayframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* * 3. AUTHENTICATION & SIGNUP FORMS
+  * ===================================
+  */
+.auth-form, .form-container, .login-container {
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.auth-form h1, .form-container h2, .login-container h1 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group, form label, .auth-form .form-group {
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.form-group label, .auth-form label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], input[type="mail"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.form-control:focus, input:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="mail"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.btn-submit, input[type="submit"], button[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover, input[type="submit"]:hover, button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.auth-links, .login-container a {
+    margin-top: var(--spacing-lg);
+    display: block;
+    font-size: 0.9rem;
+}
+
+/* Signup Form Specifics */
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+form td {
+    padding: var(--spacing-sm);
+    vertical-align: middle;
+}
+form th {
+    padding: var(--spacing-md);
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+}
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.radio-container label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+/* Password creation/details page */
+.details-box, .password-box {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius);
+}
+.box-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+/* * 4. DASHBOARD & CONTENT PAGES
+  * ===================================
+  */
+
+/* Left column navigation */
+.column.left table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.column.left td {
+    padding: 0;
+    border: none;
+}
+
+.column.left .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.column.left .btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+/* General content tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+tr:nth-child(even) {
+    background-color: var(--primary-light-bg);
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+
+/* Forms inside the iframe */
+.column.right .container, .column.right form {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+.column.right .container h2 {
+    font-size: 1.5rem;
+}
+.column.right .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Receipt Styles */
+.receipt {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.receipt h2 {
+    border-bottom: 2px solid var(--primary-dark);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* * 5. RESPONSIVE DESIGN
+  * ===================================
+  */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .column.left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--gray-light);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .dashboard-container {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    .auth-form, .form-container, .login-container {
+        margin: 2rem 1rem;
+        padding: var(--spacing-lg);
+    }
+}

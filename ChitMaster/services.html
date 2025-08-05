@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Chit Master</title>
+    
+</head>
+<body>
+ <nav class="navbar">
+        <a href="main_page.html" class="navbar-logo">
+            <img src="assets/images/logo.png" alt="Chit Master Logo">
+            <span>Chit Master</span>
+        </a>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="main_page.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#" onclick="toggleDropdown(event)">Login ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="User_Module/user_login_page.php">User Login</a>
+                    <a href="Company_Module/company_login (1).php">Admin Login</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>Our Services</h1>
+        <p>We provide comprehensive chit fund management solutions to make your financial journey smooth and secure.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">💼</div>
+            <h2>Chit Fund Management</h2>
+            <p>Efficiently manage multiple chits, track payments, and monitor auction activities with complete transparency and security.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">👥</div>
+            <h2>Member Registration & Tracking</h2>
+            <p>Seamless registration process for new members with robust tracking of contributions and participant records.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🔔</div>
+            <h2>Auction Notifications</h2>
+            <p>Stay informed with instant notifications about auction dates, winner details, and disbursement information.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📊</div>
+            <h2>Reporting & Analytics</h2>
+            <p>Comprehensive reporting tools for monitoring chits, collections, and payment status with detailed analytics.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🔒</div>
+            <h2>Secure Transactions</h2>
+            <p>Bank-grade security for all financial transactions with complete audit trails and verification systems.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h2>Mobile Access</h2>
+            <p>Access your chit fund information anytime, anywhere through our mobile-friendly platform.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            
+            if (!dropdown.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        // Mobile navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

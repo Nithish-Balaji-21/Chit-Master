@@ -1,0 +1,394 @@
+
+/*================================================================
+  Chit Master - Professional Company Module Stylesheet
+  Description: A consolidated, modern stylesheet for all company-facing pages.
+================================================================*/
+
+/* * 1. GLOBAL SETTINGS & VARIABLES
+ * ===================================
+ */
+:root {
+    /* Colors */
+    --primary-color: #28a745;
+    --primary-dark: #1e7e34;
+    --primary-gradient: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    --white: #ffffff;
+    --light-bg: #f4f7f6; /* Soft, light gray-green background */
+    --gray-light: #dee2e6;
+    --text-dark: #212529;
+    --text-light: #6c757d;
+    --danger-color: #dc3545;
+
+    /* Spacing & Radius */
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --radius: 8px;
+
+    /* Effects */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* * 2. LAYOUT & DASHBOARD
+ * ===================================
+ */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem var(--spacing-xl);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.navbar-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    height: calc(100vh - 70px); /* Adjust based on navbar height */
+}
+
+.column.left {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-y: auto;
+}
+
+.column.right {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+#displayframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* * 3. NAVIGATION & BUTTONS
+ * ===================================
+ */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.8rem;
+}
+
+.table td {
+    padding: 0;
+}
+
+.table tr:first-child td {
+    padding: var(--spacing-md);
+    background: var(--primary-dark);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--white);
+    color: var(--primary-color);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--primary-gradient);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    border: 1px solid var(--gray-light);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.8rem var(--spacing-md);
+    color: var(--text-dark);
+}
+
+.dropdown-menu a:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* * 4. FORMS (Login, Create Scheme, etc.)
+ * ===================================
+ */
+.login-form, .form-container, .scheme-form, .auction-form {
+    max-width: 500px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Wider form for scheme creation */
+.scheme-form {
+    max-width: 900px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-header h1, .form-container h2 {
+    color: var(--primary-dark);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-light);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group, form label {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control, form input[type="text"], form input[type="password"], form input[type="number"], form input[type="date"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.form-control:focus, form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+input[type="submit"], .form-actions button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: var(--primary-gradient);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+input[type="submit"]:hover, .form-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.form-footer {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* * 5. TABLES & DATA DISPLAY
+ * ===================================
+ */
+.schemes-container, .table-container, .receipt {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) auto;
+}
+
+.table-responsive, .table-container {
+    overflow-x: auto;
+}
+
+.schemes-table, .receipt table, .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.schemes-table th, .receipt th, .table-container th {
+    background: var(--primary-dark);
+    color: var(--white);
+    font-weight: 600;
+    padding: var(--spacing-md);
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.schemes-table td, .receipt td, .table-container td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.schemes-table tr:nth-of-type(even), .receipt tr:nth-of-type(even), .table-container tr:nth-of-type(even) {
+    background-color: var(--light-bg);
+}
+
+.schemes-table tr:hover, .receipt tr:hover, .table-container tr:hover {
+    background-color: #e9f5ee;
+}
+
+.no-schemes, .no-data {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* * 6. PAGE-SPECIFIC STYLES
+ * ===================================
+ */
+
+/* Live Scheme Page */
+.heading {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2rem;
+    border-bottom: 2px solid var(--gray-light);
+    padding-bottom: var(--spacing-md);
+}
+
+.mb-4 { /* Wrapper for each live scheme */
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--gray-light);
+}
+
+.member-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.member-column {
+    flex: 1 1 calc(20% - var(--spacing-lg));
+    min-width: 180px;
+}
+
+/* * 7. RESPONSIVE DESIGN
+ * ===================================
+ */
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .member-column {
+        flex-basis: calc(33.33% - var(--spacing-lg));
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    .member-column {
+        flex-basis: calc(50% - var(--spacing-md));
+    }
+}

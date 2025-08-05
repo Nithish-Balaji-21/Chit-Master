@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../assets/css/company/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Table</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <a href="company_create_scheme.php" target="frame2">CREATE SCHEMES</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="company_start_scheme.php" target="frame2">START SCHEMES</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Manage Schemes
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="company_start_scheme.php" target="frame2">Start Schemes</a></li>
+                                <li><a href="company_end_scheme.php" target="frame2">End Schemes</a></li>
+                                <li><a href="company_start_auction.php" target="frame2">Start Auctions</a></li>
+                                <li><a href="company_end_auction.php" target="frame2">End Auctions</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="company_receipts.php" target="frame2">RECEIPTS</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="company_settings.php" target="frame2">SETTINGS</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

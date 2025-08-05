@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Master - Home</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="main_page.html" class="navbar-logo">
+            <img src="assets/images/logo.png" alt="Chit Master Logo">
+            <span>Chit Master</span>
+        </a>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="main_page.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#" onclick="toggleDropdown(event)">Login ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="User_Module/user_login_page.php">User Login</a>
+                    <a href="Company_Module/company_login (1).php">Admin Login</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to Chit Master</h1>
+        <p>Your trusted partner in managing chit funds securely and efficiently.</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Secure Transactions</h3>
+            <p>Safe and reliable payment processing for all your chit fund needs</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Easy Management</h3>
+            <p>Streamlined process for managing multiple chit funds</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Real-time Updates</h3>
+            <p>Stay informed with instant notifications and updates</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Trusted Community</h3>
+            <p>Join a growing community of satisfied users</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        function toggleMenu() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+
+        navToggle.addEventListener('click', toggleMenu);
+
+        // Dropdown menu
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+            event.stopPropagation();
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById("dropdownMenu");
+            const dropdownButton = document.querySelector('.dropdown > a');
+            
+            if (dropdown && !event.target.matches('.dropdown > a')) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const dropdown = document.getElementById("dropdownMenu");
+                if (dropdown) {
+                    dropdown.style.display = "none";
+                }
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

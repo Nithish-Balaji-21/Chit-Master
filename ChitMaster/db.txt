@@ -1,0 +1,175 @@
+create database chit_fund3;
+use chit_fund3;
+select * from admins;
+select * from users;
+select * from schemes;
+select * from ongoing_scheme;
+select * from ended_scheme;
+select * from customers_bidded;
+select * from scheme_slots;
+select * from company_monthly_payments;	
+select * from user_monthly_payments;
+
+create table schemes(chit_id varchar(10),name varchar(100),totalamount int,totalcount int,duration int,commissionpercent int,startingdate date,transaction_id varchar(100));
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    userstatus ENUM('Married', 'Unmarried') NOT NULL,
+    dob DATE NOT NULL,
+    aadhar VARCHAR(20) NOT NULL,
+    address TEXT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    usergender ENUM('Male', 'Female', 'Other') NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    occupation VARCHAR(255) NOT NULL,
+    retirement_year DATE NOT NULL,
+    family_count INT NOT NULL,
+    account_no VARCHAR(20) NOT NULL,
+    monthly_income DECIMAL(10, 2) NOT NULL,
+    savings DECIMAL(10, 2) NOT NULL,
+    useremi ENUM('Yes', 'No') NOT NULL,
+    username VARCHAR(100),
+    pass VARCHAR(100)
+);
+CREATE TABLE user_accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    username VARCHAR(255) NOT NULL, 
+    account_no CHAR(16) NOT NULL UNIQUE,
+    annual_income DECIMAL(15, 2) NOT NULL, 
+    account_balance DECIMAL(15, 2) NOT NULL 
+);
+select * from user_accounts;
+drop table scheme_slots;
+create table scheme_slots(
+chit_id varchar(100),opened bool,count int,
+member1 varchar(50),member2 varchar(50),member3 varchar(50),
+member4 varchar(50),member5 varchar(50),member6 varchar(50),
+member7 varchar(50),member8 varchar(50),member9 varchar(50),
+member10 varchar(50),member11 varchar(50),member12 varchar(50),
+member13 varchar(50),member14 varchar(50),member15 varchar(50),
+member16 varchar(50),member17 varchar(50),member18 varchar(50),
+member19 varchar(50),member20 varchar(50),member21 varchar(50),
+member22 varchar(50),member23 varchar(50),member24 varchar(50),
+member25 varchar(50),member26 varchar(50),member27 varchar(50),
+member28 varchar(50),member29 varchar(50),member30 varchar(50),currentcount int DEFAULT 0
+);
+INSERT INTO scheme_slots (chit_id, opened, count, member1, member2, member3, member4, member5, member6, member7, member8, member9,
+    member10, member11, member12, member13, member14, member15, member16, member17, member18, member19, member20, member21,
+    member22, member23, member24, member25, member26, member27, member28, member29, member30, currentcount)
+VALUES ('chit1234', TRUE, 10, 'Nitin_7c9', 'Jumanah_369', 'Preethi_0Ca', 'nitish', 'William', 'James', 'Benjamin', 'Lucas', 'Henry', 'Alexander',
+    'Mason', 'Michael', 'Ethan', 'Daniel', 'Jacob', 'Logan', 'Jackson', 'Sebastian', 'Jack', 'Aiden',
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10);
+
+
+INSERT INTO schemes (chit_id, name, totalamount, totalcount, duration, commissionpercent, startingdate, transaction_id)
+VALUES 
+    ('chit9865', 'marriage', 100000, 10, 10, 2, '2024-06-10', 't1234'),
+    ('chite611', 'abc', 2000000, 20, 20, 2, '2024-08-05', 't5678'),
+    ('chitea79', 'car', 100000, 10, 10, 2, '2024-06-10', 't1256'),
+    ('chitdfd1', 'gold', 200000, 20, 20, 2, '2024-06-14', 't3478'),
+    ('chit1234', 'house', 100000, 10, 10, 2, '2024-06-10', 't4567');
+
+DROP TABLE ongoing_scheme;
+CREATE TABLE ongoing_scheme (
+    chit_id VARCHAR(100) PRIMARY KEY,
+    chit_name VARCHAR(100),
+    auctionstatus BOOLEAN,
+    monthlypay INT,
+    kasar INT,
+    commission_percent INT,
+    amount_bidded INT,
+    current_month INT,
+    total_members INT,
+    customer_bidded INT
+);
+ALTER TABLE ongoing_scheme MODIFY customer_bidded VARCHAR(100);
+
+INSERT INTO ongoing_scheme (
+    chit_id, chit_name, auctionstatus, monthlypay, kasar, commission_percent, amount_bidded, current_month, total_members, customer_bidded
+) VALUES 
+('chit9865', 'marriage', TRUE, 10000, 0, 2, 10000, 0, 10, 3),
+('chite611', 'abc', FALSE, 15000, 0, 2, 10000, 0, 10, 5),
+('chitea79', 'car', TRUE, 10000, 100, 2, 1000, 1, 10, 2),
+('chitdfd1', 'gold', FALSE, 10000, 100, 2, 1000, 1, 10, 4),
+('chit1234', 'house', TRUE, 10000, 0, 2, 10000, 0, 10, 3);
+select * from ongoing_scheme;
+ALTER TABLE ongoing_scheme ADD totalamount int;
+
+INSERT INTO scheme_slots (
+    chit_id, opened, count,
+    member1, member2, member3, member4, member5, member6, member7, member8, member9, member10,
+    member11, member12, member13, member14, member15, member16, member17, member18, member19,
+    member20, member21, member22, member23, member24, member25, member26, member27, member28, member29, member30, currentcount
+) VALUES
+('chit9865', TRUE, 10,'Nitin_7c9', 'Jumanah_369', 'Preethi_0ca', 'nitish', 'balaji', 'akshaya', 'varshini', 'husena', 'jothi', 'Jack',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10),
+('chitdfd1', FALSE, 10,'Nitin_7c9', 'balaji', 'Oliver', 'Elijah', 'William', 'James', 'Benjamin', 'Lucas', 'Henry', 'Alexander',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10),
+('chite611', TRUE, 10,'jumanah', 'preethi', 'nitish', 'Isabella', 'Mia', 'Amelia', 'Harper', 'Evelyn', 'Abigail', 'Emily',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5);
+select * from scheme_slots;
+
+CREATE TABLE IF NOT EXISTS company_monthly_payments (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    chit_id VARCHAR(100) NOT NULL,
+    month INT NOT NULL,
+    year INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    payment_status ENUM('pending', 'completed') NOT NULL DEFAULT 'completed'
+);
+
+CREATE TABLE IF NOT EXISTS user_monthly_payments (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    chit_id VARCHAR(100) NOT NULL,
+    month INT NOT NULL,
+    year INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    payment_status ENUM('pending', 'completed') NOT NULL DEFAULT 'completed'
+);
+INSERT INTO user_monthly_payments (user_id, chit_id, month, year, amount, payment_date, payment_status)
+VALUES ('Nitin_7c9', 'chitdfd1', 4, 2024, 10612, '2024-06-12', 'completed');
+
+
+CREATE TABLE scheme_members (
+    member_id INT AUTO_INCREMENT PRIMARY KEY,
+    chit_id VARCHAR(100),
+    member_name VARCHAR(100),
+    FOREIGN KEY (chit_id) REFERENCES ongoing_scheme(chit_id)
+);
+INSERT INTO scheme_members (chit_id, member_name) VALUES
+('chit9865', 'Jumanah_369'),
+('chit9865', 'Nitin_7c9'),
+('chit1234', 'Nitish_4bd'),
+('chitdfd1', 'Preethi_0ca');
+
+create table customers_bidded
+(
+chit_id varchar(100),
+customer_bidded varchar(100),
+amount int,
+on_month int 
+);
+select * from customers_bidded;
+select * from scheme_members;
+-----------------------
+create table admins(
+	id varchar(100),
+    pass varchar(100),
+    branch varchar (100),
+    transactionid varchar(100)
+);
+insert into admins(id,pass,branch,transactionid) values ('nithish','nithish123','coimbatore','12345');
+insert into admins(id,pass,branch,transactionid) values ('nitin','nitin	123','coimbatore','12345');
+insert into admins(id,pass,branch,transactionid) values ('jumanah','jum','coimbatore','12');
+select * from admins;
+
+create table ended_scheme(
+chit_id varchar(100),
+chit_name varchar(100),
+commission_percent int,
+total_members int,
+total_amount int,
+ended_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+select * from ended_scheme;

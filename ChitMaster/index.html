@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Chit Master</title>
+    
+</head>
+<body>
+    <div class="hero-container">
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="Chit Master Logo" class="logo">
+            <h1 class="welcome-text">Welcome to Chit Master</h1>
+            <p class="subtitle">Your Trusted Partner in Chit Fund Management</p>
+            <a href="main_page.html" class="get-started-btn">Get Started</a>
+        </div>
+    </div>
+
+    <script>
+        // Money animation
+        function createMoneyElements() {
+            const symbols = ['💰', '💵', '💸'];
+            const money = document.createElement('div');
+            money.className = 'money';
+            money.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            money.style.left = Math.random() * window.innerWidth + 'px';
+            money.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.body.appendChild(money);
+
+            setTimeout(() => {
+                money.remove();
+            }, 3000);
+        }
+
+        // Create initial set of money elements
+        for(let i = 0; i < 5; i++) {
+            setTimeout(() => createMoneyElements(), i * 300);
+        }
+
+        // Continue creating money elements periodically
+        setInterval(createMoneyElements, 2000);
+
+        // Mobile Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        function toggleMenu() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navToggle.contains(e.target) && 
+                !navLinks.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+  </script>
+
+</body>
+</html>

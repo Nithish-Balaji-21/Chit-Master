@@ -1,0 +1,79 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../assets/css/user/style.css">
+    
+</head>
+<body>
+    <form action="user_password_creation.php" method="POST">
+        <table>
+            <tr>
+                <th colspan="4"><center>PERSONAL INFORMATION</center></th>
+            </tr>
+            <tr>
+                <td>Enter your name</td>
+                <td><input type="text" name="name" pattern="^[A-Za-z]+ [A-Za-z]+$" title="Please enter your name followed by initial, separated by a space" required></td>
+                <td>Marital status</td>
+                <td>
+                    Married <input type="radio" name="userstatus" value="Married" required>
+                    Unmarried <input type="radio" name="userstatus" value="Unmarried" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of birth</td>
+                <td><input type="date" name="dob" required></td>
+                <td>Aadhar no</td>
+                <td><input type="text" name="aadhar" pattern="\d{12}" title="Aadhar number must be exactly 12 digits" required></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="address" required></td>
+                <td>Email</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    Male <input type="radio" value="Male" name="usergender" required>
+                    Female <input type="radio" value="Female" name="usergender" required>
+                    Other <input type="radio" value="Other" name="usergender" required>
+                </td>
+                <td>Phone</td>
+                <td><input type="text" name="phone" pattern="\d{10}" required></td>
+            </tr>
+            <tr>
+                <th colspan="4"><center>ELIGIBILITY INFO</center></th>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td><input type="text" name="occupation" pattern="^[A-Za-z\s]+$" title="Please enter alphabetic characters only" required></td>
+                <td>Retirement year</td>
+                <td><input type="date" name="retirement_year" required></td>
+            </tr>
+            <tr>
+                <td>Family member count</td>
+                <td><input type="number" name="family_count" required></td>
+                <td>Account no</td>
+                <td><input type="text" name="account_no" pattern="\d{16}" title="Account number must be exactly 16 digits" required></td>
+            </tr>
+            <tr>
+                <td>Monthly income</td>
+                <td><input type="number" name="monthly_income" required></td>
+                <td>Saving over expenses</td>
+                <td><input type="number" name="savings" required></td>
+            </tr>
+            <tr>
+                <td>Paying EMI or loans</td>
+                <td>
+                    Yes <input type="radio" name="useremi" value="Yes" required>
+                    No <input type="radio" name="useremi" value="No" required>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="submit" value="PROCEED" name="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
